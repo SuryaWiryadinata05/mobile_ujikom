@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import 'package:hexcolor/hexcolor.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../controllers/home_controller.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:lottie/lottie.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
@@ -13,10 +12,6 @@ class HomeView extends GetView<HomeController> {
     HomeController controller = Get.put(HomeController());
     return Scaffold(
       backgroundColor: HexColor('#feeee8'),
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        centerTitle: true,
-      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

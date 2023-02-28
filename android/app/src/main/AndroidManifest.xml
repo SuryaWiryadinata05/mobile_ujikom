@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ujikom">
    <application
-        android:label="ujikom"
+        android:label="Ujikom Bosss"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/komik">
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import '../controllers/login_controller.dart';
+import 'package:hexcolor/hexcolor.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({Key? key}) : super(key: key);
@@ -24,12 +24,12 @@ class LoginView extends GetView<LoginController> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
+                controller: controller.emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email',
                   hintText: 'Masukan Email',
                 ),
-                controller: controller.emailController,
               ),
             ),
             Padding(
@@ -41,12 +41,12 @@ class LoginView extends GetView<LoginController> {
               ),
               child: TextField(
                 obscureText: true,
+                controller: controller.passwordController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Password',
                   hintText: 'Masukan Password',
                 ),
-                controller: controller.passwordController,
               ),
             ),
             const SizedBox(
@@ -64,7 +64,7 @@ class LoginView extends GetView<LoginController> {
                   controller.loginNow();
                 },
                 child: const Text(
-                  'Loginn',
+                  'Login',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25,

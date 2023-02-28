@@ -1,19 +1,20 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:get/get.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+
 import '../../../utils/api.dart';
 import '../../dashboard/views/dashboard_view.dart';
 
 class LoginController extends GetxController {
   //TODO: Implement LoginController
+
+  final _getConnect = GetConnect();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final authToken = GetStorage();
-
-  // final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
@@ -31,6 +32,7 @@ class LoginController extends GetxController {
     passwordController.dispose();
   }
 
+  @override
   void loginNow() async {
     var client = http.Client();
     var response;
@@ -47,8 +49,8 @@ class LoginController extends GetxController {
         jsonDecode(utf8.decode(response.bodyBytes)) as Map<String, dynamic>;
     if (decodedResponse['success'] == true) {
       authToken.write('token', decodedResponse['access_token']);
-      authToken.write('full_name', response.body['full_name']);
-      Get.offAllNamed('/home');
+      authToken.write('full_name', decodedResponse['full_name']);
+      Get.offAll(() => const DashboardView());
     } else {
       Get.snackbar('Error', decodedResponse['message'],
           icon: const Icon(Icons.error),
@@ -58,6 +60,4 @@ class LoginController extends GetxController {
           margin: const EdgeInsets.only(top: 10, left: 5, right: 5));
     }
   }
-
-  // void increment() => count.value++;
 }

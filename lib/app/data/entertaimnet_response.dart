@@ -1,11 +1,11 @@
-class EntertainmentResponse {
+class EntertaimentResponse {
   bool? succsess;
   String? message;
   List<Data>? data;
 
-  EntertainmentResponse({this.succsess, this.message, this.data});
+  EntertaimentResponse({this.succsess, this.message, this.data});
 
-  EntertainmentResponse.fromJson(Map<String, dynamic> json) {
+  EntertaimentResponse.fromJson(Map<String, dynamic> json) {
     succsess = json['succsess'];
     message = json['message'];
     if (json['data'] != null) {
